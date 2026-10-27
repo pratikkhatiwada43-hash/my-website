@@ -12,7 +12,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
-        /* Exact Two-by-Two Side Alignment Styles */
+        /* Base Responsive Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         .hero-globe-container {
             position: relative;
             width: 520px;
@@ -51,42 +62,59 @@
             font-size: 1.2rem;
         }
 
-        /* 2 on the Left, 2 on the Right in Clean Rows */
-        .badge-left-top {
-            top: 60px;
-            left: -20px;
-        }
+        .badge-left-top { top: 60px; left: -20px; }
+        .badge-left-bottom { bottom: 60px; left: -35px; }
+        .badge-right-top { top: 60px; right: -20px; }
+        .badge-right-bottom { bottom: 60px; right: -10px; }
 
-        .badge-left-bottom {
-            bottom: 60px;
-            left: -35px;
-        }
-
-        .badge-right-top {
-            top: 60px;
-            right: -20px;
-        }
-
-        .badge-right-bottom {
-            bottom: 60px;
-            right: -10px;
-        }
-
-        @media (max-width: 1100px) {
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
             .hero {
-                flex-direction: column;
+                flex-direction: column !important;
                 text-align: center;
+                padding: 40px 5% !important;
+            }
+            .hero-content {
+                max-width: 100% !important;
             }
             .hero-globe-container {
-                margin: 40px auto 10px;
-                width: 100%;
-                max-width: 380px;
-                height: 320px;
+                margin: 30px auto 10px;
+                width: 100% !important;
+                max-width: 340px !important;
+                height: 280px !important;
             }
-            .badge-left-top { top: 20px; left: 0; }
-            .badge-left-bottom { bottom: 20px; left: 0; }
-            .badge-right-top { top: 20px; right: 0; }
-            .badge-right-bottom { bottom: 20px; right: 0; }
+            .badge-left-top { top: 10px; left: 0; font-size: 0.85rem; padding: 5px 10px; }
+            .badge-left-bottom { bottom: 10px; left: 0; font-size: 0.85rem; padding: 5px 10px; }
+            .badge-right-top { top: 10px; right: 0; font-size: 0.85rem; padding: 5px 10px; }
+            .badge-right-bottom { bottom: 10px; right: 0; font-size: 0.85rem; padding: 5px 10px; }
+            
+            .about-layout {
+                grid-template-columns: 1fr !important;
+                justify-items: center;
+                text-align: center;
+                gap: 25px !important;
+            }
+            .about-card {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+            .about-icon {
+                margin: 0 auto;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .project-card {
+                grid-template-columns: 1fr !important;
+            }
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -112,37 +140,36 @@
         <!-- HERO SECTION -->
         <section id="home" class="hero" style="display: flex; align-items: center; justify-content: space-between; padding: 45px 8%; background-color: #0b1424; background-image: linear-gradient(90deg, rgba(5, 12, 25, 0.75) 0%, rgba(5, 12, 25, 0.60) 50%, rgba(5, 12, 25, 0.35) 100%), url('./IMG_8831.JPG'); background-size: cover; background-position: center; color: #ffffff; position: relative;">
             <div class="hero-content" style="position: relative; z-index: 2; width: 100%; max-width: 580px;">
-                <p class="eyebrow" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: #f8fafc; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px;">
+                <p class="eyebrow" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; color: #f8fafc; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px;">
                     <span class="status-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #fb7185; box-shadow: 0 0 12px rgba(251, 113, 133, 0.6);"></span>
                     GEOMATICS ENGINEERING STUDENT
                 </p>
 
-                <h1 style="margin-bottom: 5px; font-size: clamp(3.8rem, 5vw, 5rem); line-height: 1.15; font-weight: 800;">
+                <h1 style="margin-bottom: 5px; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1.15; font-weight: 800;">
                     Hello, I'm <span style="display: block; margin-top: 2px; color: #fb7185;">Pratik Khatiwada</span>
                 </h1>
 
-                <h2 style="margin-bottom: 5px; color: #f1f5f9; font-size: 1.9rem; font-weight: 600;">
+                <h2 style="margin-bottom: 5px; color: #f1f5f9; font-size: 1.4rem; font-weight: 600;">
                     GIS | Remote Sensing | GeoAI | AI/ML & Deep Learning
                 </h2>
 
-                <p class="hero-description" style="max-width: 530px; margin-bottom: 15px; color: #e2e8f0; font-size: 1.3rem; line-height: 1.8;">
+                <p class="hero-description" style="max-width: 530px; margin-bottom: 15px; color: #e2e8f0; font-size: 1.1rem; line-height: 1.8; margin-left: auto; margin-right: auto;">
                     B.E. Geomatics Engineering student at Kathmandu University, passionate about geospatial technology, spatial analysis, and integrating AI/ML and Deep Learning into mapping workflows.
                 </p>
 
-                <div class="hero-buttons" style="display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap;">
+                <div class="hero-buttons" style="display: flex; justify-content: center; gap: 14px; margin-top: 10px; flex-wrap: wrap;">
                     <a href="#projects" class="btn btn-primary" style="padding: 9px 16px; background: #e11d48; color: #fff; border-radius: 5px; font-weight: 700;"><i class="fa-solid fa-layer-group"></i> Explore My Projects <i class="fa-solid fa-arrow-right"></i></a>
                     <a href="#about" class="btn btn-outline" style="padding: 9px 16px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.65); color: #fff; border-radius: 5px; font-weight: 700;"><i class="fa-regular fa-user"></i> About Me</a>
                     <a href="mailto:pratikkhatiwada43@gmail.com" class="btn btn-linkedin" style="padding: 9px 16px; background: #0a66c2; color: #fff; border-radius: 5px; font-weight: 700;"><i class="fa-solid fa-envelope"></i> Email Me</a>
                 </div>
 
-                <div class="hero-meta" style="display: flex; flex-wrap: wrap; gap: 12px 25px; margin-top: 18px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 1.1rem;">
+                <div class="hero-meta" style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 18px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 1rem;">
                     <div><i class="fa-solid fa-graduation-cap"></i> <span>Kathmandu University (7th Semester)</span></div>
-                    <div><i class="fa-solid fa-location-dot"></i> <span>Dhulikhel, Kavre, Nepal</span></div>
                     <div><i class="fa-solid fa-envelope"></i> <span>pratikkhatiwada43@gmail.com</span></div>
                 </div>
             </div>
 
-            <!-- GLOBE + 2 ON LEFT, 2 ON RIGHT ALIGNED BADGES -->
+            <!-- GLOBE CONTAINER -->
             <div class="hero-globe-container">
                 <canvas id="globeCanvas"></canvas>
                 <div class="geo-badge badge-left-top"><i class="fa-solid fa-plane"></i> UAV Photogrammetry</div>
@@ -150,16 +177,14 @@
                 <div class="geo-badge badge-right-top"><i class="fa-solid fa-cubes-stacked"></i> LiDAR Point Cloud</div>
                 <div class="geo-badge badge-right-bottom"><i class="fa-solid fa-satellite"></i> Remote Sensing</div>
             </div>
-
-            <a href="#about" class="scroll-down" style="position: absolute; bottom: 15px; right: 8%; display: flex; align-items: center; gap: 8px; color: #ffffff; font-weight: 600;">Discover More <i class="fa-solid fa-arrow-down"></i></a>
         </section>
 
         <!-- ABOUT SECTION -->
         <section id="about" class="section about-section" style="padding: 60px 8%; background: #ffffff;">
-            <div class="section-heading" style="max-width: 1200px; margin: 0 auto 28px;">
+            <div class="section-heading" style="max-width: 1200px; margin: 0 auto 28px; text-align: center;">
                 <p class="section-label" style="color: #e11d48; font-weight: 800; font-size: 1.1rem;">GET TO KNOW ME</p>
-                <h2 style="color: #0b1424; font-size: 2.8rem; font-weight: 800;">About <span style="color: #e11d48;">Me</span></h2>
-                <p style="color: #64748b; font-size: 1.3rem;">Learning, mapping, and exploring the world through geospatial technology and design.</p>
+                <h2 style="color: #0b1424; font-size: 2.3rem; font-weight: 800;">About <span style="color: #e11d48;">Me</span></h2>
+                <p style="color: #64748b; font-size: 1.1rem;">Learning, mapping, and exploring the world through geospatial technology and design.</p>
             </div>
             <div class="about-layout" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 240px minmax(0, 1fr); align-items: center; gap: 50px;">
                 <div class="profile-card" style="width: 240px; height: 290px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(11,20,36,0.15);">
@@ -168,9 +193,9 @@
                 <div class="about-card" style="padding: 30px; border-radius: 12px; background: #f8fafc; display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 20px;">
                     <div class="about-icon" style="width: 50px; height: 50px; display: grid; place-items: center; border-radius: 50%; background: #e11d48; color: #fff; font-size: 2.2rem;"><i class="fa-solid fa-earth-asia"></i></div>
                     <div class="about-content">
-                        <h3 style="color: #0b1424; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;">Geomatics Engineering Student & Designer</h3>
-                        <p style="color: #475569; font-size: 1.25rem; margin-bottom: 12px;">I am currently pursuing a Bachelor’s degree in Geomatics Engineering (7th Semester) at Kathmandu University, Dhulikhel, Nepal. My primary focus includes GIS, satellite remote sensing, high-precision DGPS, surveying, UAV mapping, and exploring <strong>GeoAI, AI/ML, and Deep Learning</strong>.</p>
-                        <p style="color: #475569; font-size: 1.25rem;">Parallel to my engineering studies, I completed my tenure as the <strong>Graphic Designer for the Geomatics Engineering Society (2026/27 tenure)</strong>.</p>
+                        <h3 style="color: #0b1424; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Geomatics Engineering Student & Designer</h3>
+                        <p style="color: #475569; font-size: 1.05rem; margin-bottom: 12px;">I am currently pursuing a Bachelor’s degree in Geomatics Engineering (7th Semester) at Kathmandu University, Dhulikhel, Nepal. My primary focus includes GIS, satellite remote sensing, high-precision DGPS, surveying, UAV mapping, and exploring <strong>GeoAI, AI/ML, and Deep Learning</strong>.</p>
+                        <p style="color: #475569; font-size: 1.05rem;">Parallel to my engineering studies, I completed my tenure as the <strong>Graphic Designer for the Geomatics Engineering Society (2026/27 tenure)</strong>.</p>
                     </div>
                 </div>
             </div>
@@ -178,101 +203,99 @@
 
         <!-- SKILLS SECTION -->
         <section id="skills" class="section skills-section" style="padding: 60px 8%; background: #f3f7fb;">
-            <div class="section-heading" style="max-width: 1200px; margin: 0 auto 28px;">
+            <div class="section-heading" style="max-width: 1200px; margin: 0 auto 28px; text-align: center;">
                 <p class="section-label" style="color: #e11d48; font-weight: 800; font-size: 1.1rem;">MY TOOLKIT</p>
-                <h2 style="color: #0b1424; font-size: 2.8rem; font-weight: 800;">Technical <span style="color: #e11d48;">Skills</span></h2>
-                <p style="color: #64748b; font-size: 1.3rem;">Tools and technologies I use or am currently learning.</p>
+                <h2 style="color: #0b1424; font-size: 2.3rem; font-weight: 800;">Technical <span style="color: #e11d48;">Skills</span></h2>
+                <p style="color: #64748b; font-size: 1.1rem;">Tools and technologies I use or am currently learning.</p>
             </div>
             <div class="skills-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
                 <article class="skill-card" style="padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
                     <div class="skill-icon" style="width: 44px; height: 44px; border-radius: 50%; background: #ffe4ec; color: #e11d48; display: grid; place-items: center; font-size: 2rem;"><i class="fa-solid fa-location-dot"></i></div>
-                    <div><h3 style="color: #0b1424; font-size: 1.2rem;">GIS & Mapping</h3><p style="color: #64748b; font-size: 1rem;">ArcGIS Pro, QGIS, thematic mapping.</p></div>
+                    <div><h3 style="color: #0b1424; font-size: 1.1rem;">GIS & Mapping</h3><p style="color: #64748b; font-size: 0.95rem;">ArcGIS Pro, QGIS, thematic mapping.</p></div>
                 </article>
                 <article class="skill-card" style="padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
                     <div class="skill-icon" style="width: 44px; height: 44px; border-radius: 50%; background: #ffe4ec; color: #e11d48; display: grid; place-items: center; font-size: 2rem;"><i class="fa-solid fa-satellite"></i></div>
-                    <div><h3 style="color: #0b1424; font-size: 1.2rem;">Remote Sensing</h3><p style="color: #64748b; font-size: 1rem;">Satellite imagery, raster processing.</p></div>
+                    <div><h3 style="color: #0b1424; font-size: 1.1rem;">Remote Sensing</h3><p style="color: #64748b; font-size: 0.95rem;">Satellite imagery, raster processing.</p></div>
                 </article>
                 <article class="skill-card" style="padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
                     <div class="skill-icon" style="width: 44px; height: 44px; border-radius: 50%; background: #ffe4ec; color: #e11d48; display: grid; place-items: center; font-size: 2rem;"><i class="fa-solid fa-tower-cell"></i></div>
-                    <div><h3 style="color: #0b1424; font-size: 1.2rem;">DGPS & Surveying</h3><p style="color: #64748b; font-size: 1rem;">RTK/PPK GNSS, geodetic control.</p></div>
+                    <div><h3 style="color: #0b1424; font-size: 1.1rem;">DGPS & Surveying</h3><p style="color: #64748b; font-size: 0.95rem;">RTK/PPK GNSS, geodetic control.</p></div>
                 </article>
                 <article class="skill-card" style="padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
                     <div class="skill-icon" style="width: 44px; height: 44px; border-radius: 50%; background: #ffe4ec; color: #e11d48; display: grid; place-items: center; font-size: 2rem;"><i class="fa-solid fa-plane"></i></div>
-                    <div><h3 style="color: #0b1424; font-size: 1.2rem;">UAV Photogrammetry</h3><p style="color: #64748b; font-size: 1rem;">Flight planning, orthomosaics.</p></div>
+                    <div><h3 style="color: #0b1424; font-size: 1.1rem;">UAV Photogrammetry</h3><p style="color: #64748b; font-size: 0.95rem;">Flight planning, orthomosaics.</p></div>
                 </article>
                 <article class="skill-card" style="padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
                     <div class="skill-icon" style="width: 44px; height: 44px; border-radius: 50%; background: #ffe4ec; color: #e11d48; display: grid; place-items: center; font-size: 2rem;"><i class="fa-solid fa-brain"></i></div>
-                    <div><h3 style="color: #0b1424; font-size: 1.2rem;">GeoAI & AI/ML</h3><p style="color: #64748b; font-size: 1rem;">Deep learning for spatial data.</p></div>
+                    <div><h3 style="color: #0b1424; font-size: 1.1rem;">GeoAI & AI/ML</h3><p style="color: #64748b; font-size: 0.95rem;">Deep learning for spatial data.</p></div>
                 </article>
                 <article class="skill-card" style="padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
                     <div class="skill-icon" style="width: 44px; height: 44px; border-radius: 50%; background: #ffe4ec; color: #e11d48; display: grid; place-items: center; font-size: 2rem;"><i class="fa-solid fa-palette"></i></div>
-                    <div><h3 style="color: #0b1424; font-size: 1.2rem;">Graphic Design</h3><p style="color: #64748b; font-size: 1rem;">Visual branding and layout design.</p></div>
+                    <div><h3 style="color: #0b1424; font-size: 1.1rem;">Graphic Design</h3><p style="color: #64748b; font-size: 0.95rem;">Visual branding and layout design.</p></div>
                 </article>
             </div>
         </section>
 
         <!-- PROJECTS SECTION -->
         <section id="projects" class="section projects-section" style="padding: 60px 8%; background: #fff;">
-            <div class="section-heading" style="max-width: 1200px; margin: 0 auto 28px;">
+            <div class="section-heading" style="max-width: 1200px; margin: 0 auto 28px; text-align: center;">
                 <p class="section-label" style="color: #e11d48; font-weight: 800; font-size: 1.1rem;">MY ACADEMIC WORK</p>
-                <h2 style="color: #0b1424; font-size: 2.8rem; font-weight: 800;">Featured <span style="color: #e11d48;">Projects</span></h2>
-                <p style="color: #64748b; font-size: 1.3rem;">Selected academic work and practical geospatial exercises.</p>
+                <h2 style="color: #0b1424; font-size: 2.3rem; font-weight: 800;">Featured <span style="color: #e11d48;">Projects</span></h2>
+                <p style="color: #64748b; font-size: 1.1rem;">Selected academic work and practical geospatial exercises.</p>
             </div>
             <div class="projects-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
                 <article class="project-card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.04); display: grid; grid-template-columns: 42% minmax(0, 1fr); gap: 20px; align-items: center;">
                     <div class="project-image" style="height: 180px; border-radius: 8px; overflow: hidden;"><img src="Rasuwa.png" alt="Flood impact" style="width: 100%; height: 100%; object-fit: cover;"></div>
                     <div class="project-content">
-                        <p class="project-type" style="color: #e11d48; font-size: 0.95rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;">GIS · REMOTE SENSING</p>
-                        <h3 style="color: #0b1424; font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3;">Satellite-Based Flood Impact Assessment</h3>
-                        <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; margin-bottom: 12px;">A project focused on assessing flood impacts in Rasuwa, Nepal, using satellite imagery and ArcGIS Pro.</p>
+                        <p class="project-type" style="color: #e11d48; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;">GIS · REMOTE SENSING</p>
+                        <h3 style="color: #0b1424; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3;">Satellite-Based Flood Impact Assessment</h3>
+                        <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px;">A project focused on assessing flood impacts in Rasuwa, Nepal, using satellite imagery and ArcGIS Pro.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
-                            <span style="background: #f1f5f9; color: #334155; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; font-weight: 600;">ArcGIS Pro</span>
-                            <span style="background: #f1f5f9; color: #334155; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Satellite Imagery</span>
-                            <span style="background: #f1f5f9; color: #334155; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Spatial Analysis</span>
+                            <span style="background: #f1f5f9; color: #334155; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 600;">ArcGIS Pro</span>
+                            <span style="background: #f1f5f9; color: #334155; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Satellite Imagery</span>
                         </div>
-                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7499859120221667328/" target="_blank" class="project-link" style="color: #e11d48; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 6px;">View Related Work <i class="fa-solid fa-arrow-right" style="font-size: 0.85rem;"></i></a>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7499859120221667328/" target="_blank" class="project-link" style="color: #e11d48; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">View Related Work <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="project-card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.04); display: grid; grid-template-columns: 42% minmax(0, 1fr); gap: 20px; align-items: center;">
                     <div class="project-image" style="height: 180px; border-radius: 8px; overflow: hidden;"><img src="crop.jpg" alt="Thematic map" style="width: 100%; height: 100%; object-fit: cover;"></div>
                     <div class="project-content">
-                        <p class="project-type" style="color: #e11d48; font-size: 0.95rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;">GIS · CARTOGRAPHY</p>
-                        <h3 style="color: #0b1424; font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3;">Spatial Analysis & Thematic Mapping</h3>
-                        <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; margin-bottom: 12px;">Academic work involving geographic data, thematic map preparation, and spatial analysis techniques.</p>
+                        <p class="project-type" style="color: #e11d48; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;">GIS · CARTOGRAPHY</p>
+                        <h3 style="color: #0b1424; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3;">Spatial Analysis & Thematic Mapping</h3>
+                        <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px;">Academic work involving geographic data, thematic map preparation, and spatial analysis techniques.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
-                            <span style="background: #f1f5f9; color: #334155; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; font-weight: 600;">QGIS</span>
-                            <span style="background: #f1f5f9; color: #334155; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; font-weight: 600;">ArcGIS Pro</span>
-                            <span style="background: #f1f5f9; color: #334155; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Cartography</span>
+                            <span style="background: #f1f5f9; color: #334155; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 600;">QGIS</span>
+                            <span style="background: #f1f5f9; color: #334155; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Cartography</span>
                         </div>
-                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7488609894355320832/" target="_blank" class="project-link" style="color: #e11d48; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 6px;">View Related Work <i class="fa-solid fa-arrow-right" style="font-size: 0.85rem;"></i></a>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7488609894355320832/" target="_blank" class="project-link" style="color: #e11d48; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">View Related Work <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- CONTACT / LET'S EXPLORE OPPORTUNITIES SECTION -->
-        <section id="contact" class="section contact-section" style="padding: 70px 8%; background-color: #0b1424; background-image: linear-gradient(rgba(7, 13, 24, 0.75), rgba(7, 13, 24, 0.75)), url('./IMG_8831.JPG'); background-size: cover; background-position: center; text-align: center; color: #ffffff;">
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section contact-section" style="padding: 70px 8%; background-color: #0b1424; background-image: linear-gradient(rgba(7, 13, 24, 0.75), rgba(7, 13, 24, 0.75)), url('./black.jpeg'); background-size: cover; background-position: center; text-align: center; color: #ffffff;">
             <div style="max-width: 800px; margin: 0 auto;">
                 <p style="color: #e11d48; font-weight: 800; font-size: 0.95rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;">Let's Connect</p>
-              <h2 style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 18px; color: #ffffff;">Let's Explore <span style="color: #e11d48;">Opportunities</span></h2>
-              <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; max-width: 650px; margin-left: auto; margin-right: auto;">
-                  Interested in geospatial technology, GIS projects, GeoAI research, design collaborations, or exchanging ideas? Feel free to reach out via email or LinkedIn.
-              </p>
-              <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                  <a href="mailto:pratikkhatiwada43@gmail.com" style="background: #e11d48; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4); transition: background 0.3s;">
-                      <i class="fa-solid fa-envelope"></i> pratikkhatiwada43@gmail.com
-                  </a>
-                  <a href="https://www.linkedin.com/in/pratik-khatiwada-781427308/" target="_blank" rel="noopener noreferrer" style="background: #0a66c2; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(10, 102, 194, 0.4); transition: background 0.3s;">
-                      <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
-                  </a>
-              </div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 18px; color: #ffffff;">Let's Explore <span style="color: #e11d48;">Opportunities</span></h2>
+                <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 30px; max-width: 650px; margin-left: auto; margin-right: auto;">
+                    Interested in geospatial technology, GIS projects, GeoAI research, design collaborations, or exchanging ideas? Feel free to reach out via email or LinkedIn.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <a href="mailto:pratikkhatiwada43@gmail.com" style="background: #e11d48; color: #ffffff; padding: 12px 20px; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-envelope"></i> pratikkhatiwada43@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/pratik-khatiwada-781427308/" target="_blank" rel="noopener noreferrer" style="background: #0a66c2; color: #ffffff; padding: 12px 20px; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer" style="display: flex; align-items: center; justify-content: space-between; padding: 20px 8%; color: #94a3b8; background: #070d18; border-top: 1px solid rgba(255,255,255,0.05);">
         <a href="#home" class="logo" style="font-size: 2rem; color: #fff; font-weight: 800; text-decoration: none;">PK<span style="color: #e11d48;">.</span></a>
-        <p style="font-size: 0.95rem; margin: 0;">© 2026 Pratik Khatiwada <span style="margin: 0 8px; color: #475569;">|</span> Geomatics Engineering Portfolio</p>
+        <p style="font-size: 0.9rem; margin: 0; text-align: center;">© 2026 Pratik Khatiwada <span style="margin: 0 4px; color: #475569;">|</span> Geomatics Engineering</p>
         <a href="https://www.linkedin.com/in/pratik-khatiwada-781427308/" target="_blank" rel="noopener noreferrer" class="footer-social" style="color: #fff; font-size: 1.5rem; text-decoration: none;"><i class="fa-brands fa-linkedin"></i></a>
     </footer>
 
@@ -291,14 +314,12 @@
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
 
-            // Wireframe Globe
             const globe = new THREE.Mesh(
                 new THREE.SphereGeometry(60, 40, 40),
                 new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.15 })
             );
             scene.add(globe);
 
-            // UAV Drone with Rotating Propellers
             const uav = new THREE.Group();
             uav.add(new THREE.Mesh(new THREE.BoxGeometry(6, 1.8, 6), new THREE.MeshBasicMaterial({ color: 0xe11d48 })));
             
