@@ -1,7 +1,6 @@
-/* ==============================
-   GLOBAL RESET & BASE
-============================== */
-
+/* ============================== */
+/* GLOBAL RESET & BASE STYLES     */
+/* ============================== */
 * {
     margin: 0;
     padding: 0;
@@ -36,10 +35,9 @@ section {
 }
 
 
-/* ==============================
-   SECTION HEADINGS
-============================== */
-
+/* ============================== */
+/* SECTION HEADINGS               */
+/* ============================== */
 .section-heading {
     max-width: 1200px;
     margin: 0 auto 28px;
@@ -74,10 +72,9 @@ section {
 }
 
 
-/* ==============================
-   NAVBAR
-============================== */
-
+/* ============================== */
+/* NAVIGATION BAR                 */
+/* ============================== */
 .header {
     position: sticky;
     top: 0;
@@ -92,7 +89,6 @@ section {
     min-height: 50px;
     margin: 0 auto;
     padding: 5px 8%;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -165,37 +161,33 @@ section {
 }
 
 
-/* ==============================
-   HERO SECTION
-============================== */
-
+/* ============================== */
+/* HERO SECTION                   */
+/* ============================== */
 .hero {
     position: relative;
     isolation: isolate;
-    min-height: 385px;
+    min-height: 520px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 45px 8%;
     color: #ffffff;
     background-color: #0b1424;
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(5, 12, 25, 0.90) 0%,
-            rgba(5, 12, 25, 0.72) 48%,
-            rgba(5, 12, 25, 0.30) 100%
-        ),
+    background-image: 
+        linear-gradient(90deg, rgba(5, 12, 25, 0.92) 0%, rgba(5, 12, 25, 0.82) 50%, rgba(5, 12, 25, 0.55) 100%),
         url("./IMG_8831.JPG");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    gap: 30px;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
-    max-width: 650px;
+    max-width: 600px;
 }
 
 .eyebrow {
@@ -248,10 +240,64 @@ section {
 }
 
 
-/* ==============================
-   HERO BUTTONS
-============================== */
+/* ============================== */
+/* HERO GLOBE & 4 CORNER BADGES   */
+/* ============================== */
+.hero-globe-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
 
+#globeCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Four Corner Floating Badges */
+.geo-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 25px;
+    background: rgba(11, 20, 36, 0.9);
+    border: 1px solid rgba(251, 113, 133, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+.geo-badge i {
+    color: #fb7185;
+    font-size: 1.3rem;
+}
+
+.geo-badge:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: #fb7185;
+}
+
+.badge-top-left { top: 15px; left: -25px; }
+.badge-top-right { top: 75px; right: -35px; }
+.badge-bottom-left { bottom: 15px; left: -35px; }
+.badge-bottom-right { bottom: 45px; right: -25px; }
+
+
+/* ============================== */
+/* HERO BUTTONS                   */
+/* ============================== */
 .hero-buttons {
     display: flex;
     flex-direction: row;
@@ -317,10 +363,9 @@ section {
 }
 
 
-/* ==============================
-   HERO UNIVERSITY DETAILS
-============================== */
-
+/* ============================== */
+/* HERO META DETAILS              */
+/* ============================== */
 .hero-meta {
     display: flex;
     flex-wrap: wrap;
@@ -357,10 +402,9 @@ section {
 }
 
 
-/* ==============================
-   ABOUT SECTION & PROFILE PIC (Optimized Size)
-============================== */
-
+/* ============================== */
+/* ABOUT SECTION & PROFILE PIC    */
+/* ============================== */
 .about-section {
     background: #ffffff;
 }
@@ -369,20 +413,21 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 240px minmax(0, 1fr);
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 }
 
 .profile-card {
     width: 100%;
-    max-width: 220px;
-    height: 270px;
+    max-width: 240px;
+    height: 290px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: 10px;
-    border: 3px solid #fce0e8;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(11, 20, 36, 0.15);
 }
 
 .profile-img {
@@ -394,14 +439,15 @@ section {
 }
 
 .about-card {
-    padding: 18px;
+    padding: 30px;
     display: grid;
     grid-template-columns: 60px minmax(0, 1fr);
     align-items: start;
-    gap: 18px;
-    border: 1px solid #fce0e8;
-    border-radius: 7px;
-    background: linear-gradient(135deg, #fff1f5, #fff7f9);
+    gap: 20px;
+    border: none;
+    border-radius: 12px;
+    background: #f8fafc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .about-icon {
@@ -412,21 +458,22 @@ section {
     border-radius: 50%;
     background: #e11d48;
     color: #ffffff;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
 }
 
 .about-card h3 {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     color: #0b1424;
-    font-size: 1.4rem;
-    line-height: 1.5;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 700;
 }
 
 .about-card p {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     color: #475569;
-    font-size: 1.2rem;
-    line-height: 1.65;
+    font-size: 1.25rem;
+    line-height: 1.7;
 }
 
 .about-card p:last-child {
@@ -434,10 +481,9 @@ section {
 }
 
 
-/* ==============================
-   SKILLS SECTION
-============================== */
-
+/* ============================== */
+/* SKILLS SECTION                 */
+/* ============================== */
 .skills-section {
     background: #f3f7fb;
 }
@@ -446,7 +492,7 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -476,7 +522,7 @@ section {
     border-radius: 50%;
     background: #ffe4ec;
     color: #e11d48;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 .skill-card h3 {
@@ -493,10 +539,9 @@ section {
 }
 
 
-/* ==============================
-   PROJECTS SECTION
-============================== */
-
+/* ============================== */
+/* PROJECTS SECTION               */
+/* ============================== */
 .projects-section {
     background: #ffffff;
 }
@@ -602,20 +647,16 @@ section {
 }
 
 
-/* ==============================
-   CONTACT SECTION
-============================== */
-
+/* ============================== */
+/* CONTACT SECTION                */
+/* ============================== */
 .contact-section {
     position: relative;
     isolation: isolate;
     padding: 35px 8%;
     background-color: #0b1424;
-    background-image:
-        linear-gradient(
-            rgba(5, 12, 25, 0.82),
-            rgba(5, 12, 25, 0.92)
-        ),
+    background-image: 
+        linear-gradient(rgba(5, 12, 25, 0.82), rgba(5, 12, 25, 0.92)),
         url("./IMG_8831.JPG");
     background-size: cover;
     background-position: center 70%;
@@ -654,10 +695,9 @@ section {
 }
 
 
-/* ==============================
-   FOOTER
-============================== */
-
+/* ============================== */
+/* FOOTER SECTION                 */
+/* ============================== */
 .footer {
     display: flex;
     align-items: center;
@@ -692,9 +732,28 @@ section {
 }
 
 
-/* ==============================
-   RESPONSIVE LAYOUTS
-============================== */
+/* ============================== */
+/* RESPONSIVE LAYOUTS             */
+/* ============================== */
+@media (max-width: 1100px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero-buttons, .hero-meta {
+        justify-content: center;
+    }
+    .hero-globe-container {
+        margin: 30px auto 10px;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
 @media (max-width: 1050px) {
     .about-layout {
@@ -702,12 +761,9 @@ section {
         gap: 20px;
     }
     .profile-card {
-        max-width: 220px;
+        max-width: 240px;
         margin: 0 auto;
-        height: 270px;
-    }
-    .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        height: 290px;
     }
     .projects-grid {
         grid-template-columns: 1fr;
